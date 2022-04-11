@@ -1,6 +1,10 @@
 # Prerequisites
 *.d
 
+.build/
+
+.coverage/
+
 # Object files
 *.o
 *.ko
