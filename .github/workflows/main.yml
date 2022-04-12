@@ -47,4 +47,4 @@ jobs:
         path: .coverage/lastrun
 
     - name: Check coverage quality gate
-      run: echo "Insufficient total number for MCDC coverage" && cat .coverage/coverage.md | grep "TOTAL" | grep "100% (3/3)"
+      run: echo "Insufficient total number for MCDC coverage" && cat .coverage/coverage.md | grep TOTAL | grep (3/3)
