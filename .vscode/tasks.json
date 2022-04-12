@@ -6,8 +6,7 @@
         {
             "label": "Configure (In Container)",
             "type": "shell",
-            "command": "docker run --rm -it -v $PWD:$PWD -w $PWD 
-             bash -c 'cmake -DCPPTEST_COVERAGE=ON -S . -B .build'",
+            "command": "docker run --rm -it -v $PWD:$PWD -w $PWD cpptest-coverage:latest bash -c 'cmake -DCPPTEST_COVERAGE=ON -S . -B .build'",
             "group": "build"
         },
         {
