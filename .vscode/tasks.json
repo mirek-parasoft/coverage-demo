@@ -12,13 +12,13 @@
         {
             "label": "Build and Run (In Container)",
             "type": "shell",
-            "command": "docker run --rm -it -v $PWD:$PWD -w $PWD cpptest-coverage:latest bash -c 'cmake --build .build && cd .build && rm -rf cpptest-coverage/GooTest/GooTest.clog && ctest || true && make coverage-compute coverage-suppress coverage-report'",
+            "command": "docker run --rm -it -v $PWD:$PWD -w $PWD cpptest-coverage:latest bash -c 'cmake --build .build && cd .build && rm -rf cpptest-coverage/GooTest/GooTest.clog && ctest || true && make coverage-compute coverage-suppress coverage-report-line'",
             "group": "build"
         },
         {
             "label": "Update coverage (In Container)",
             "type": "shell",
-            "command": "docker run --rm -it -v $PWD:$PWD -w $PWD cpptest-coverage:latest bash -c 'cd .build;make coverage-suppress coverage-report'",
+            "command": "docker run --rm -it -v $PWD:$PWD -w $PWD cpptest-coverage:latest bash -c 'cd .build;make coverage-suppress coverage-report-line'",
             "group": "build"
         }
 

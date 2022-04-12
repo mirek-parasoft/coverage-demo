@@ -145,6 +145,19 @@ function (cpptest_enable_coverage)
         "${CPPTEST_SOURCE_DIR}/.coverage/lastrun"
   )
 
+  add_custom_target(coverage-report-line
+    COMMAND
+    ${CPPTEST_HOME_DIR}/bin/coverage-report-stats-md.py
+        "${CPPTEST_SOURCE_DIR}/.coverage/lastrun" >
+        "${CPPTEST_SOURCE_DIR}/.coverage/coverage.md"
+    &&
+    ${CPPTEST_HOME_DIR}/bin/coverage-report-stats-txt-line.py
+        "${CPPTEST_SOURCE_DIR}/.coverage/lastrun"
+    &&
+    ${CPPTEST_HOME_DIR}/bin/coverage-report-suppressed-lines.py
+        "${CPPTEST_SOURCE_DIR}/.coverage/lastrun"
+  )
+
 endfunction()
 
 if(CPPTEST_COVERAGE)
