@@ -13,7 +13,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel.
 jobs:
-  run-cpptest-make:
+  run-cpptest-cmake:
     name: Analyze project with C/C++test
 
     # Specifies the type of runner that the job will run on.
@@ -28,18 +28,20 @@ jobs:
 
     # Configures your CMake project. Be sure the compile_commands.json file is created.
     - name: Configure project
-      run: cmake -DCPPTEST_COVERAGE=ON -S . -B .build
+      run: cmake -DCPPTEST_COVERAGE=ON -S . -B build
 
-    # Builds your CMake project. (This step is optional, as it is not required for code analysis).
-    - name: Build project (optional)
-      run: cmake --build .build && cd .build && rm -rf cpptest-coverage/GooTest/GooTest.clog && ctest || true && make coverage-compute coverage-suppress coverage-report
+    # Builds your CMake project.
+    - name: Build project
+      run: cmake --build build
+      
+    # Tests your CMake project.
+    - name: Test project
+      run: cd build && rm -rf cpptest-coverage/GooTest/GooTest.clog && ctest || true && make coverage-compute coverage-suppress coverage-report
 
-    
-    # Uploads an archive that includes all report files (.xml, .html, .sarif).
-    - name: Archive reports
+    # Uploads an archive that includes all coverage data files.
+    - name: Archive coverage
       if: always()
       uses: actions/upload-artifact@v2
       with:
-        name: CpptestReports
-        path: .coverage/coverage.*
-
+        name: CpptestCoverage
+        path: .coverage/
