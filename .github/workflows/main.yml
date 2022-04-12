@@ -45,3 +45,6 @@ jobs:
       with:
         name: CpptestCoverage
         path: .coverage/lastrun
+
+    - name: Check coverage quality gate
+      run: echo "Insufficient total number for MCDC coverage" && exit 1
