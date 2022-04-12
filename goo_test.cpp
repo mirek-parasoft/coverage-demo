@@ -18,5 +18,5 @@ TEST(GooTest, TestGetValueWithZero) {
 
 // 
 TEST(GooTest, TestGetValueWithZero1) {
-   EXPECT_EQ(getValue(0, 0), 6);
+   EXPECT_EQ(getValue(0, 6), 6);
 }
