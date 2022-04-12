@@ -20,6 +20,18 @@
             "type": "shell",
             "command": "docker run --rm -it -v $PWD:$PWD -w $PWD cpptest-coverage:latest bash -c 'cd .build;make coverage-suppress coverage-report-line'",
             "group": "build"
+        },
+        {
+            "label": "Build and Run Extended (In Container)",
+            "type": "shell",
+            "command": "docker run --rm -it -v $PWD:$PWD -w $PWD cpptest-coverage:latest bash -c 'cmake --build .build && cd .build && rm -rf cpptest-coverage/GooTest/GooTest.clog && ctest || true && make coverage-compute coverage-suppress coverage-report'",
+            "group": "build"
+        },
+        {
+            "label": "Update coverage Extended (In Container)",
+            "type": "shell",
+            "command": "docker run --rm -it -v $PWD:$PWD -w $PWD cpptest-coverage:latest bash -c 'cd .build;make coverage-suppress coverage-report'",
+            "group": "build"
         }
 
     ]
