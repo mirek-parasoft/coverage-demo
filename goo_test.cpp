@@ -10,3 +10,8 @@ TEST(GooTest, TestGetValueWithPositive) {
 TEST(GooTest, TestGetValueWithMixed_1) {
    EXPECT_EQ(getValue(0, 4), 0);
 }
+
+// 
+TEST(GooTest, TestGetValueWithZero) {
+   EXPECT_EQ(getValue(0, 0), 0);
+}
