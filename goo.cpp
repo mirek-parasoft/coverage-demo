@@ -12,6 +12,6 @@ int getValue(int a, int b)
         return b;
     }
 
-    return 0;    //coverage-suppress "Legacy code, accepted"
+    return 0;    
 }
 
