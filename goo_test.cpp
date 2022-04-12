@@ -18,6 +18,6 @@ TEST(GooTest, TestGetValueWithZero) {
 
 
 // // 
-// TEST(GooTest, TestGetValueWithMixed_2) {
-//   EXPECT_EQ(getValue(0, 6), 0);
-// }
+TEST(GooTest, TestGetValueWithMixed_2) {
+  EXPECT_EQ(getValue(0, 6), 0);
+}
